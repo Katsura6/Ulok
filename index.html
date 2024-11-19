@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person Management System</title>
+    <link href="assets/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="assets/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">  </head>
+
+  <body>
+  
+
+    <!-- Add Person Form -->
+      <div class="container">
+        <div id="addPersonForm">
+          <h2 class="mb-4 mt-5">Add New Person</h2>
+          <form id="personForm" onsubmit="handleAddPerson(event)">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" required>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Gender</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                <label class="form-check-label" for="other">Other</label>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="birthDate" class="form-label">Birth Date</label>
+              <input type="date" class="form-control" id="birthDate" required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input type="number" class="form-control" id="age" min="0" max="150" required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="occupation" class="form-label">Occupation</label>
+              <input type="text" class="form-control" id="occupation" required>
+            </div>
+  
+            <button type="submit" class="btn btn-primary" >Add Person</button>
+          </form>
+        </div>
+  
+        <div class="conttainer mt-5" style="height: 50vh;">
+            <div id="viewPersons">
+                <h2 class="mb-4">View Persons</h2>
+                <div id="personsList" class="row g-4">
+                  <!-- Persons will be display here -->
+                </div>
+              </div>
+          </div>
+
+       <!-- Pop up  -->
+        <!-- Edit Person -->
+        <div class="modal fade" id="editModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Person</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form id="editForm">
+                  <input type="hidden" id="editId">
+                  <div class="mb-3">
+                    <label for="editFullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="editFullName" required>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="editGender" id="editMale" value="male">
+                      <label class="form-check-label" for="editMale">Male</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="editGender" id="editFemale" value="female">
+                      <label class="form-check-label" for="editFemale">Female</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="editGender" id="editOther" value="other">
+                      <label class="form-check-label" for="editOther">Other</label>
+                    </div>
+                  </div>
+  
+                  <div class="mb-3">
+                    <label for="editBirthDate" class="form-label">Birth Date</label>
+                    <input type="date" class="form-control" id="editBirthDate" required>
+                  </div>
+  
+                  <div class="mb-3">
+                    <label for="editAge" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="editAge" min="0" max="150" required>
+                  </div>
+  
+                  <div class="mb-3">
+                    <label for="editOccupation" class="form-label">Occupation</label>
+                    <input type="text" class="form-control" id="editOccupation" required>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="handleUpdatePerson()">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <footer class=" mt-5 py-4" style="background-color: rgb(195, 191, 191);">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+                  
+                  <p onclick="hello()" style="cursor: pointer; color: blue; font-size: 2rem;">
+                    Click here
+                  </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+  
+      <script src="assets/scripts/script.js"></script>
+    </body>
+</html>
